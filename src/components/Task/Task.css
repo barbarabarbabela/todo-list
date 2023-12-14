@@ -1,0 +1,27 @@
+.Task {
+  flex-wrap: wrap;
+  display: inline-block;
+}
+.card {
+  border: 1px solid #354f52;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  min-height: 150px;
+  height: fit-content;
+  box-shadow: 5px 5px 5px #2f3e46;
+  margin: 10px;
+}
+
+.card:hover {
+  background-color: #bfc7ba;
+}
+.card h3 {
+  color: #2f3e46;
+  margin: 0;
+}
+
+.card p {
+  color: #354f52;
+  margin: 15px 0 0;
+}

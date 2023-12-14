@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "name": "Rugby",
+      "description": "Treino de rugby semanal",
+      "date": "17/12/2023"
+    },
+    {
+      "name": "Leitura",
+      "description": "Ler 50 páginas por dia",
+      "date": "31/12/2023"
+    }
+  ]
+}
