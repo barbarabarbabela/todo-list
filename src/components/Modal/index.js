@@ -4,21 +4,19 @@ import "./Modal.css";
 import { useState } from "react";
 import TextField from "../TextField";
 
-const Modal = ({ modalClose, submitForm, handleSubmit, taskData }) => {
+const Modal = ({ modalClose, submitForm }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [task, setTask] = useState(taskData || {});
+  const [task, setTask] = useState({ name: "", description: "", date: "" });
 
   const submit = (e) => {
     e.preventDefault();
-    handleSubmit(task);
+    console.log(name, description, date);
+    setTask({ ...task, name: name, description: description, date: date });
+    console.log(task);
   };
 
-  function handleOnChange(e) {
-    setTask({ ...task, [e.target.name]: e.target.value });
-    console.log(task);
-  }
   return (
     <div className="Modal">
       <div className="modalContainer">
@@ -49,7 +47,7 @@ const Modal = ({ modalClose, submitForm, handleSubmit, taskData }) => {
               handleChange={(value) => setDate(value)}
             />
             <div className="button">
-              <Button name="Enviar" onPress={submitForm} />
+              <Button name="Enviar" onPress={submit} />
               <Button name="Cancelar" onPress={modalClose} />
             </div>
           </form>
