@@ -1,14 +1,22 @@
 {
   "tasks": [
     {
+      "id": 1,
       "name": "Rugby",
       "description": "Treino de rugby semanal",
       "date": "17/12/2023"
     },
     {
+      "id": 2,
       "name": "Leitura",
       "description": "Ler 50 páginas por dia",
       "date": "31/12/2023"
+    },
+    {
+      "id": 3,
+      "name": "Limpar casa",
+      "description": "Limpar a casa antes da viagem",
+      "date": "18/12/2023"
     }
   ]
 }

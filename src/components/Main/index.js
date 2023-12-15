@@ -26,9 +26,21 @@ const Main = () => {
       .then((json) => setTasks(json));
   }
 
-  function handleSubmitForm(e, nome, description, date) {
-    e.preventDefault();
-    console.log("Enviar", e, nome, description, date);
+  function createTask(task) {
+    task.name = "";
+    task.description = "";
+    task.date = "";
+
+    fetch("http://localhost:5000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   }
 
   const taskData = Object.values(tasks);
@@ -41,7 +53,7 @@ const Main = () => {
 
       <Button name="Criar Tarefa" onPress={modalOpen} />
       {openModal ? (
-        <Modal modalClose={closeModal} submitForm={handleSubmitForm} />
+        <Modal modalClose={closeModal} handleSubmit={createTask} />
       ) : null}
       <div className="tasks">
         {taskData.map((item, index) => (
