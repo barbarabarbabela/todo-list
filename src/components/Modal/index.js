@@ -3,6 +3,7 @@ import Button from "../Button";
 import "./Modal.css";
 import { useState } from "react";
 import TextField from "../TextField";
+import Label from "../Label";
 
 const Modal = ({ modalClose, onSubmit }) => {
   const [name, setName] = useState("");
@@ -15,26 +16,23 @@ const Modal = ({ modalClose, onSubmit }) => {
         <h2>Criar nova tarefa</h2>
         <div className="form">
           <form>
-            <label>Nome da tarefa: </label>
+            <Label name="Nome da Tarefa" />
             <TextField
               required={true}
               placeholder="Tarefa"
-              value={name}
               type="text"
               handleChange={(value) => setName(value)}
             />
-            <label>Descrição da tarefa:</label>
+            <Label name="Descrição:" />
             <TextField
               required={true}
               placeholder="Descrição"
-              value={description}
               type="text"
               handleChange={(value) => setDescription(value)}
             />
-            <label>Data de finalização:</label>
+            <Label name="Data de finalização: " />
             <TextField
               required={true}
-              value={date}
               type="date"
               handleChange={(value) => setDate(value)}
             />

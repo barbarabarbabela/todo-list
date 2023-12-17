@@ -4,10 +4,9 @@ import Button from "../Button";
 import Modal from "../Modal";
 import { useEffect, useState } from "react";
 
-const Main = (props) => {
+const Main = () => {
   const [openModal, setOpenModal] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const taskData = Object.values(tasks);
 
   useEffect(() => {
     //GET
@@ -39,7 +38,6 @@ const Main = (props) => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
       .catch((err) => console.log(err));
   }
 
@@ -50,11 +48,13 @@ const Main = (props) => {
       </header>
 
       <Button name="Criar Tarefa" onPress={modalOpen} />
+
       {openModal ? (
         <Modal modalClose={closeModal} onSubmit={fetchTask} />
       ) : null}
+
       <div className="tasks">
-        {taskData.map((item, index) => (
+        {tasks.map((_item, index) => (
           <Task
             key={index}
             name={tasks[index].name}

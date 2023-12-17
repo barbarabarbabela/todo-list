@@ -1,3 +1,16 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "name": "Rugby",
+      "description": "Estudar regras do rugby",
+      "date": "2023-12-31",
+      "id": 1
+    },
+    {
+      "name": "Ler livro",
+      "description": "Finalizar leitura do livro",
+      "date": "2023-12-31",
+      "id": 2
+    }
+  ]
 }

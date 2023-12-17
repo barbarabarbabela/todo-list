@@ -1,8 +1,5 @@
 import "./Task.css";
 import Delete from "../../assets/delete.png";
-import Edit from "../../assets/edit.png";
-import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
 
 const Task = (props) => {
   //DELETE
@@ -18,7 +15,6 @@ const Task = (props) => {
     <div className="Task">
       <div className="card">
         <div className="img">
-          <img src={Edit}></img>
           <img
             src={Delete}
             onClick={() => {
