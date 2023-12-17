@@ -7,6 +7,14 @@ import { useEffect, useState } from "react";
 const Main = (props) => {
   const [openModal, setOpenModal] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const taskData = Object.values(tasks);
+
+  useEffect(() => {
+    //GET
+    fetch("http://localhost:5000/tasks/")
+      .then((response) => response.json())
+      .then((json) => setTasks(json));
+  }, []);
 
   const modalOpen = () => {
     setOpenModal(true);
@@ -16,27 +24,15 @@ const Main = (props) => {
     setOpenModal(false);
   };
 
-  console.log(props);
-
-  useEffect(() => {
-    fetchCard();
-  }, []);
-
-  //GET
-  async function fetchCard() {
-    fetch("http://localhost:5000/tasks")
-      .then((response) => response.json())
-      .then((json) => setTasks(json));
-  }
-
   //POST
-  function fetchTask(name, description, date) {
+  function fetchTask(name, description, date, id) {
     fetch("http://localhost:5000/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id: id,
         name: name,
         description: description,
         date: date,
@@ -46,15 +42,6 @@ const Main = (props) => {
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   }
-
-  //DELETE
-  function deleteTask() {
-    fetch("http://localhost:5000/tasks", {
-      method: "DELETE",
-    });
-  }
-
-  const taskData = Object.values(tasks);
 
   return (
     <div className="Main">
@@ -73,6 +60,7 @@ const Main = (props) => {
             name={tasks[index].name}
             description={tasks[index].description}
             date={tasks[index].date}
+            id={tasks[index].id}
           />
         ))}
       </div>
